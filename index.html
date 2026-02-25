@@ -2327,12 +2327,14 @@
         }
 
         // Check for saved device preference on page load
+        // DESHABILITADO: Ahora siempre pedirá selección de dispositivo
         window.addEventListener('load', function() {
-            const savedDevice = localStorage.getItem('plantcare_device_view');
+            // El selector de dispositivos se mostrará cada vez que se cargue la página
+            /* const savedDevice = localStorage.getItem('plantcare_device_view');
             if (savedDevice) {
                 selectDevice(savedDevice);
                 startWithDevice();
-            }
+            } */
         });
 
         let users = JSON.parse(localStorage.getItem('plantcare_users')) || [];
