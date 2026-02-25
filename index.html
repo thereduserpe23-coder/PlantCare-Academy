@@ -1,0 +1,3661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlantCare Academy - Decoración Verde para Oficinas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+
+        :root {
+            --primary: #5d7b4a;
+            --primary-light: #7a9d66;
+            --dark: #1a1a1a;
+            --light: #f5f8f3;
+            --cream: #f0ebe4;
+            --danger: #d97654;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --device-view: desktop;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f8f3 0%, #e8eee3 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f8f3 100%);
+            border: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: none;
+            transition: var(--transition);
+        }
+
+        .modules-view.active ~ nav,
+        body.modules-active nav {
+            display: none;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-buttons.hidden {
+            display: none;
+        }
+
+        .btn-login, .btn-register {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-login {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-login:hover {
+            background: #f9f9f9;
+        }
+
+        .btn-register {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-register:hover {
+            background: var(--primary-light);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #5d7b4a 0%, #3d5a2e 100%);
+            color: white;
+            border-radius: 40px;
+            margin: 40px 60px;
+            box-shadow: 0 20px 60px rgba(93, 123, 74, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 1.05em;
+            margin-bottom: 30px;
+            opacity: 0.98;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 15px 40px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            width: fit-content;
+            z-index: 1;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image {
+            text-align: center;
+            font-size: 15em;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        
+        .mission-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 80px 60px;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f8f3 100%);
+            position: relative;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1463320726281-696a485928c7?q=80&w=1200&auto=format&fit=crop') right/cover;
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .mission-left h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-left p {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+            text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-right {
+            background: linear-gradient(135deg, #e8eee3 0%, #f5f8f3 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(93, 123, 74, 0.12);
+            border: 1px solid rgba(93, 123, 74, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-right img {
+            width: 100%;
+            border-radius: 15px;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+
+        .stats-section {
+            background: linear-gradient(135deg, #f0ebe4 0%, #e8eee3 100%);
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1466781783364-36c955e42a7f?q=80&w=1200&auto=format&fit=crop') center/cover;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .stat {
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .features-section {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #f5f8f3 0%, #e8eee3 100%);
+            position: relative;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1200&auto=format&fit=crop') center/cover;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .features-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #f5f8f3 0%, #e8eee3 100%);
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(93, 123, 74, 0.08);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(93, 123, 74, 0.15);
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .features-image {
+            text-align: center;
+            font-size: 12em;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #f5f8f3 0%, #f0ebe4 100%);
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=1200&auto=format&fit=crop') center/cover;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .contact-left {
+            background: linear-gradient(135deg, #5d7b4a 0%, #3d5a2e 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(93, 123, 74, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-left h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .contact-left p {
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 15px;
+            border: 2px solid #d0d8c5;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1em;
+            transition: var(--transition);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f8f3 100%);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(93, 123, 74, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1em;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f8f3 100%);
+            padding: 50px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+        }
+
+        .modal-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .modal-subtitle {
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-form .form-group input {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+        }
+
+        .form-toggle button {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dashboard {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dashboard.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #5d7b4a 0%, #3d5a2e 100%);
+            color: white;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(93, 123, 74, 0.2);
+        }
+
+        .dashboard-header h1 {
+            font-size: 2em;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .user-profile div:first-child {
+            text-align: right;
+        }
+
+        .user-profile div:first-child div {
+            font-weight: 600;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        .user-profile small {
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #7a9d66 0%, #9bc383 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: white;
+            box-shadow: 0 4px 15px rgba(122, 157, 102, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dashboard-nav a i {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
+        .dashboard-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .dashboard-nav a {
+            padding: 10px 0;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dashboard-nav a.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .dashboard-content {
+            padding: 60px;
+            background: linear-gradient(135deg, #f5f8f3 0%, #e8eee3 100%);
+            min-height: calc(100vh - 200px);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f8f3 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(93, 123, 74, 0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(93, 123, 74, 0.3) 100%);
+        }
+
+        .course-info {
+            padding: 25px;
+        }
+
+        .course-info h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .course-info p {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #d0d8c5;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* DEVICE SELECTOR SECTION */
+        .device-selector-overlay {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #5d7b4a 0%, #3d5a2e 100%);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .device-selector-overlay.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .device-selector-container {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 50px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .device-selector-header {
+            margin-bottom: 50px;
+        }
+
+        .device-selector-container h1 {
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .device-selector-subtitle {
+            color: #888;
+            font-size: 1.1em;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .device-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .device-options {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .device-selector-container {
+                padding: 40px 30px;
+            }
+        }
+
+        .device-option {
+            background: linear-gradient(135deg, #f9faf7 0%, #f5f8f3 100%);
+            border: 2px solid #e0e6d8;
+            border-radius: 18px;
+            padding: 35px 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .device-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .device-option:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(93, 123, 74, 0.2);
+            border-color: var(--primary);
+        }
+
+        .device-option.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(93, 123, 74, 0.4);
+        }
+
+        .device-option.active .device-option-title,
+        .device-option.active .device-option-desc {
+            color: white;
+        }
+
+        .device-option-icon-wrapper {
+            font-size: 3.5em;
+            color: var(--primary);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(93, 123, 74, 0.1) 0%, rgba(122, 157, 102, 0.05) 100%);
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+
+        .device-option.active .device-option-icon-wrapper {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .device-option:hover .device-option-icon-wrapper {
+            transform: scale(1.05);
+        }
+
+        .device-option-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .device-option-desc {
+            font-size: 0.9em;
+            opacity: 0.6;
+            color: #666;
+            transition: var(--transition);
+        }
+
+        .device-selector-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            padding: 16px 60px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(93, 123, 74, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .device-selector-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(93, 123, 74, 0.4);
+        }
+
+        .device-selector-button:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 600px) {
+            .device-selector-container h1 {
+                font-size: 2em;
+            }
+
+            .device-selector-button {
+                padding: 14px 40px;
+                font-size: 1em;
+            }
+        }
+
+        /* RESPONSIVE DEVICE VIEWS */
+        body.view-mobile {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        body.view-tablet {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        body.view-desktop {
+            max-width: 100%;
+        }
+
+        /* TABLET CONTAINER */
+        .tablet-frame {
+            display: none;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8eee3 0%, #d0d8c5 100%);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        body.view-tablet .tablet-frame {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .hero, .mission-section, .stats-section, .features-section, .contact-section {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+                gap: 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .features-image {
+                font-size: 8em;
+            }
+
+            .dashboard-header, .dashboard-nav, .dashboard-content {
+                padding: 20px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* MOBILE SPECIFIC STYLES (320px - 480px) */
+        @media (max-width: 480px) {
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            nav {
+                padding: 12px 15px;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 1.2em;
+            }
+
+            .nav-links {
+                gap: 10px;
+                font-size: 0.9em;
+            }
+
+            .nav-links a {
+                font-size: 0.85em;
+            }
+
+            .auth-buttons {
+                width: 100%;
+                gap: 10px;
+            }
+
+            .btn-login, .btn-register {
+                padding: 8px 15px;
+                font-size: 0.85em;
+                flex: 1;
+            }
+
+            .hero {
+                padding: 30px 20px;
+                margin: 20px;
+                border-radius: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5em;
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                font-size: 0.95em;
+                margin-bottom: 20px;
+            }
+
+            .hero-button {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            .hero-image {
+                font-size: 8em;
+                border-radius: 15px;
+            }
+
+            .mission-section {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+
+            .mission-left h2,
+            .contact-left h2 {
+                font-size: 1.5em;
+            }
+
+            .mission-left p {
+                font-size: 0.9em;
+                text-align: left;
+            }
+
+            .mission-right {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .mission-right img {
+                max-height: 250px;
+            }
+
+            .stats-section {
+                padding: 30px 20px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .stat {
+                padding: 25px;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+            }
+
+            .stat-label {
+                font-size: 0.9em;
+            }
+
+            .features-section {
+                padding: 30px 20px;
+            }
+
+            .features-section h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-item {
+                padding: 18px 20px;
+                margin-bottom: 15px;
+                border-radius: 10px;
+            }
+
+            .feature-item h3 {
+                font-size: 1.05em;
+            }
+
+            .feature-item p {
+                font-size: 0.9em;
+            }
+
+            .features-image {
+                font-size: 7em;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+                gap: 25px;
+            }
+
+            .contact-left {
+                padding: 30px 20px;
+                border-radius: 15px;
+            }
+
+            .contact-left h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .contact-left p {
+                margin-bottom: 25px;
+                font-size: 0.95em;
+            }
+
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+                gap: 15px;
+            }
+
+            .contact-form {
+                gap: 15px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .form-group textarea {
+                min-height: 100px;
+            }
+
+            .submit-btn {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+                max-width: 90%;
+                border-radius: 15px;
+            }
+
+            .modal-title {
+                font-size: 1.6em;
+            }
+
+            .modal-subtitle {
+                font-size: 0.95em;
+            }
+
+            .modal-form .form-group input {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .dashboard-header {
+                padding: 20px;
+            }
+
+            .dashboard-nav {
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .nav-item {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+
+            .dashboard-content {
+                padding: 15px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .course-card {
+                border-radius: 12px;
+            }
+
+            .course-image {
+                height: 150px;
+                font-size: 3em;
+            }
+
+            .course-info {
+                padding: 18px;
+            }
+
+            .course-info h3 {
+                font-size: 1em;
+            }
+
+            .course-info p {
+                font-size: 0.85em;
+            }
+
+            .modules-header {
+                padding: 30px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .modules-header h1 {
+                font-size: 1.8em;
+            }
+
+            .modules-content {
+                padding: 20px 15px;
+            }
+
+            .module-section {
+                padding: 22px 18px;
+                border-radius: 14px;
+                margin-bottom: 20px;
+            }
+
+            .module-section h3 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+
+            .module-section h4 {
+                font-size: 1em;
+                margin-top: 18px;
+            }
+
+            .module-section p,
+            .module-section li {
+                font-size: 0.88em;
+            }
+
+            .quiz-section {
+                padding: 22px 18px;
+                margin-top: 30px;
+                border-radius: 14px;
+            }
+
+            .quiz-section h3 {
+                font-size: 1.2em;
+                margin-bottom: 20px;
+            }
+
+            .quiz-question h4 {
+                font-size: 0.95em;
+            }
+
+            .quiz-option {
+                padding: 12px 15px;
+                margin-bottom: 8px;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navigation-buttons button {
+                padding: 12px 18px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* TABLET SPECIFIC STYLES (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            nav {
+                padding: 18px 40px;
+            }
+
+            .logo {
+                font-size: 1.4em;
+            }
+
+            .nav-links {
+                gap: 30px;
+                font-size: 0.95em;
+            }
+
+            .hero {
+                padding: 50px 40px;
+                margin: 30px 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+
+            .hero-image {
+                font-size: 10em;
+            }
+
+            .mission-section {
+                padding: 50px 40px;
+            }
+
+            .mission-left h2 {
+                font-size: 1.8em;
+            }
+
+            .stats-section {
+                padding: 50px 40px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+            }
+
+            .stat-number {
+                font-size: 3em;
+            }
+
+            .features-section {
+                padding: 50px 40px;
+            }
+
+            .features-section h2 {
+                font-size: 2.2em;
+            }
+
+            .feature-item {
+                padding: 22px 25px;
+            }
+
+            .contact-section {
+                padding: 50px 40px;
+            }
+
+            .contact-left {
+                padding: 45px;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .modules-header {
+                padding: 40px 60px;
+            }
+
+            .modules-header h1 {
+                font-size: 2.2em;
+            }
+
+            .modules-content {
+                padding: 40px 50px;
+            }
+
+            .module-section {
+                padding: 35px 40px;
+            }
+
+            .quiz-section {
+                padding: 40px 45px;
+            }
+        }
+
+        /* LARGE TABLET (769px+) */
+        @media (min-width: 769px) {
+            body.view-mobile {
+                font-size: 14px;
+            }
+
+            body.view-tablet {
+                font-size: 15px;
+            }
+        }
+
+        .modules-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modules-view.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .modules-header {
+            background: linear-gradient(135deg, #2d4a23 0%, #1f3818 100%);
+            color: white;
+            padding: 50px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modules-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(93, 123, 74, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .modules-header h1 {
+            font-size: 2.6em;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modules-header button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            padding: 13px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .modules-header button:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .modules-header button:active {
+            transform: translateY(0);
+        }
+
+        .modules-content {
+            padding: 80px;
+            background: linear-gradient(135deg, #f8faf7 0%, #f0f4ec 100%);
+            min-height: calc(100vh - 180px);
+            position: relative;
+        }
+
+        .modules-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(93, 123, 74, 0.2), transparent);
+        }
+
+        .module-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 55px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(93, 123, 74, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px 0 0 20px;
+            opacity: 0;
+            transform: scaleY(0);
+            transition: all 0.4s ease;
+        }
+
+        .module-section:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            border-color: rgba(93, 123, 74, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .module-section:hover::before {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        .module-section h3 {
+            color: #1f3818;
+            margin-top: 0;
+            margin-bottom: 28px;
+            font-size: 1.65em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: start;
+            gap: 16px;
+            line-height: 1.3;
+        }
+
+        .module-section h3::before {
+            content: '◆';
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 3px;
+            font-size: 0.75em;
+        }
+
+        .module-section h4 {
+            color: #2d4a23;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            font-size: 1.25em;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .module-section p {
+            line-height: 1.85;
+            color: #555;
+            margin-bottom: 18px;
+            font-size: 0.98em;
+            letter-spacing: 0.3px;
+        }
+
+        .module-section ul {
+            margin-left: 0;
+            margin-bottom: 22px;
+            list-style: none;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(93, 123, 74, 0.03) 0%, rgba(122, 157, 102, 0.03) 100%);
+            border-radius: 14px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .module-section li {
+            margin-bottom: 14px;
+            color: #555;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.7;
+            font-size: 0.98em;
+        }
+
+        .module-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        .module-section li::before {
+            content: '→';
+            position: absolute;
+            left: 6px;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.1em;
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, rgba(93, 123, 74, 0.08) 0%, rgba(122, 157, 102, 0.06) 100%);
+            border-radius: 20px;
+            padding: 50px 55px;
+            margin-top: 50px;
+            border: 2px solid var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(93, 123, 74, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .quiz-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 40px;
+            color: #1f3818;
+            font-size: 1.65em;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-section h3::before {
+            content: '';
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.65em;
+            flex-shrink: 0;
+        }
+
+        .quiz-question {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(93, 123, 74, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-question:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .quiz-question h4 {
+            color: #2d4a23;
+            font-weight: 800;
+            margin-bottom: 24px;
+            font-size: 1.15em;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .quiz-question h4::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.7em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            padding: 18px 24px;
+            margin-bottom: 14px;
+            background: white;
+            border-radius: 14px;
+            border: 2px solid #e8ecdf;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary);
+            border-radius: 14px 0 0 14px;
+            transform: scaleY(0);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary);
+            background: #fafcf8;
+            transform: translateX(6px);
+        }
+
+        .quiz-option:hover::before {
+            transform: scaleY(1);
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-right: 18px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .quiz-option label {
+            cursor: pointer;
+            flex: 1;
+            color: #555;
+            font-size: 0.98em;
+            font-weight: 500;
+        }
+
+        .quiz-result {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 16px;
+            display: none;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quiz-result h4 {
+            margin-bottom: 12px;
+            font-size: 1.35em;
+            letter-spacing: -0.5px;
+        }
+
+        .quiz-result p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        .quiz-result.success {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 1px solid rgba(21, 87, 36, 0.2);
+            box-shadow: 0 6px 20px rgba(21, 87, 36, 0.12);
+        }
+
+        .quiz-result.error {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 1px solid rgba(114, 28, 36, 0.2);
+            box-shadow: 0 6px 20px rgba(114, 28, 36, 0.12);
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 18px;
+            margin-top: 45px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navigation-buttons button {
+            flex: 1;
+            padding: 15px 32px;
+            font-size: 1em;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.3px;
+        }
+
+        .navigation-buttons button.btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #4a6a38 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(93, 123, 74, 0.25);
+        }
+
+        .navigation-buttons button.btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(93, 123, 74, 0.35);
+        }
+
+        .navigation-buttons button.btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(93, 123, 74, 0.1);
+        }
+
+        .navigation-buttons button.btn-secondary:hover {
+            background: #f9fdf7;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(93, 123, 74, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .modules-header {
+                padding: 40px 60px;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .modules-header h1 {
+                font-size: 2.2em;
+            }
+
+            .modules-content {
+                padding: 60px 40px;
+            }
+
+            .module-section {
+                padding: 40px 35px;
+            }
+
+            .quiz-section {
+                padding: 40px 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modules-header {
+                padding: 30px 20px;
+            }
+
+            .modules-header h1 {
+                font-size: 1.8em;
+            }
+
+            .modules-content {
+                padding: 30px 15px;
+                min-height: auto;
+            }
+
+            .module-section {
+                padding: 28px 22px;
+                margin-bottom: 28px;
+                border-radius: 16px;
+            }
+
+            .module-section h3 {
+                font-size: 1.35em;
+                margin-bottom: 20px;
+            }
+
+            .module-section h4 {
+                font-size: 1.05em;
+                margin-top: 22px;
+            }
+
+            .module-section p,
+            .module-section li {
+                font-size: 0.93em;
+            }
+
+            .quiz-section {
+                padding: 28px 22px;
+                margin-top: 35px;
+            }
+
+            .quiz-section h3 {
+                font-size: 1.35em;
+                margin-bottom: 28px;
+            }
+
+            .quiz-question h4 {
+                font-size: 1em;
+            }
+
+            .quiz-option {
+                padding: 15px 18px;
+                margin-bottom: 10px;
+            }
+
+            .quiz-option input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                margin-right: 12px;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .navigation-buttons button {
+                padding: 13px 24px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+
+    <!-- DEVICE SELECTOR -->
+    <div id="device-selector" class="device-selector-overlay">
+        <div class="device-selector-container">
+            <div class="device-selector-header">
+                <i class="fas fa-leaf" style="font-size: 2.5em; color: var(--primary); margin-bottom: 15px;"></i>
+                <h1>PlantCare Academy</h1>
+                <p class="device-selector-subtitle">Selecciona tu dispositivo preferido</p>
+            </div>
+            
+            <div class="device-options">
+                <div class="device-option active" data-device="desktop" onclick="selectDevice('desktop')">
+                    <div class="device-option-icon-wrapper">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="device-option-title">Escritorio</div>
+                    <div class="device-option-desc">Pantalla Completa</div>
+                </div>
+                <div class="device-option" data-device="tablet" onclick="selectDevice('tablet')">
+                    <div class="device-option-icon-wrapper">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <div class="device-option-title">Tablet</div>
+                    <div class="device-option-desc">7" - 10"</div>
+                </div>
+                <div class="device-option" data-device="mobile" onclick="selectDevice('mobile')">
+                    <div class="device-option-icon-wrapper">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="device-option-title">Móvil</div>
+                    <div class="device-option-desc">4" - 6"</div>
+                </div>
+            </div>
+            
+            <button class="device-selector-button" onclick="startWithDevice()">
+                <i class="fas fa-arrow-right" style="margin-right: 8px;"></i>Continuar
+            </button>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo"><i class="fas fa-leaf" style="margin-right: 8px;"></i>PlantCare Academy</div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#mision">Nuestra Misión</a>
+            <a href="#servicio">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="btn-login" onclick="openLoginModal()">Iniciar Sesión</button>
+            <button class="btn-register" onclick="openRegisterModal()">Registrarse</button>
+        </div>
+    </nav>
+
+
+    <main id="main-page">
+        <!-- HERO SECTION -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>Decoración Verde para Oficinas Modernas</h1>
+                <p>Crea un entorno laboral productivo y placentero con la ayuda de nuestro verde decorativo</p>
+                <a href="#" class="hero-button" onclick="openRegisterModal(); return false;">Ver Proyectos</a>
+            </div>
+            <div class="hero-image" style="background: url('assets/images/hero.jpg') center/cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(93, 123, 74, 0.3);"></div>
+        </section>
+
+        <!-- MISIÓN SECTION -->
+        <section class="mission-section" id="mision">
+            <div class="mission-left">
+                <h2>Nuestra Misión</h2>
+                <p>Ayudamos a clientes a transformar espacios ordinarios en ambientes extraordinarios. Nuestro objetivo es crear entornos que inspiren creatividad y bienestar.</p>
+                <p>Con más de una década de experiencia, hemos aprendido que el verde no es solo decoración, es una inversión en la calidad de vida. Por eso nuestros proyectos están diseñados para ser sostenibles y hermosos a largo plazo.</p>
+            </div>
+            <div class="mission-right">
+                <img src="assets/images/mission.jpg" alt="Plantas decorativas" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(93, 123, 74, 0.2); object-fit: cover;">
+            </div>
+        </section>
+
+        <!-- ESTADÍSTICAS -->
+        <section class="stats-section">
+            <div class="stat">
+                <div class="stat-number">10</div>
+                <div class="stat-label">años en el mercado</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">500</div>
+                <div class="stat-label">proyectos completados</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">clientes satisfechos</div>
+            </div>
+        </section>
+
+        <!-- CARACTERÍSTICAS -->
+        <section class="features-section" id="servicio">
+            <h2>4 Razones por las que trabajar con nosotros</h2>
+            <div class="features-container">
+                <div class="features-list">
+                    <div class="feature-item">
+                        <h3>Calidad</h3>
+                        <p>Utilizamos solo las mejores plantas que mantienen su belleza durante años, reduciendo gastos de mantenimiento</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Rapidez</h3>
+                        <p>Valoramos tu tiempo y garantizamos resultados rápidos manteniendo la más alta calidad en nuestras entregas</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Variedad</h3>
+                        <p>Ofrecemos amplia variedad de estilos y opciones para adaptarse a tus preferencias y presupuesto</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Sostenibilidad</h3>
+                        <p>Cada proyecto está diseñado para ser ecológico y responsable con el medio ambiente a largo plazo</p>
+                    </div>
+                </div>
+
+                <div class="features-image" style="background: url('assets/images/features.jpg') center/cover; border-radius: 20px; box-shadow: 0 15px 40px rgba(93, 123, 74, 0.2); min-height: 400px;"></div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="contact-section" id="contacto">
+            <div class="contact-left">
+                <h2>Contáctanos</h2>
+                <p>¿Listo para transformar tu espacio? Comunícate con nuestro equipo hoy</p>
+                <div class="social-links">
+                    <div class="social-icon">📱</div>
+                    <div class="social-icon">✉️</div>
+                    <div class="social-icon">💬</div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleContactForm(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Tu email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tu mensaje" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAuthModal()">&times;</span>
+
+            <!-- LOGIN FORM -->
+            <div id="login-form-container" style="display: block;">
+                <h2 class="modal-title">Bienvenido de Vuelta</h2>
+                <p class="modal-subtitle">Inicia sesión en tu cuenta</p>
+
+                <div id="login-message" class="message"></div>
+
+                <form class="modal-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <input type="email" id="login-email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Iniciar Sesión</button>
+                </form>
+
+                <div class="form-toggle">
+                    ¿Sin cuenta? <button onclick="toggleForms()">Regístrate aquí</button>
+                </div>
+            </div>
+
+            <!-- REGISTER FORM -->
+            <div id="register-form-container" style="display: none;">
+                <h2 class="modal-title">Crear Cuenta</h2>
+                <p class="modal-subtitle">Únete a PlantCare Academy</p>
+
+                <div id="register-message" class="message"></div>
+
+                <form class="modal-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <input type="text" id="register-name" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="register-email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="register-password" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="register-confirm" placeholder="Confirmar contraseña" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Crear Cuenta</button>
+                </form>
+
+                <div class="form-toggle">
+                    ¿Ya tienes cuenta? <button onclick="toggleForms()">Inicia sesión aquí</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dashboard-page" class="dashboard">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-leaf" style="margin-right: 10px;"></i>PlantCare Academy</h1>
+            <div class="user-profile">
+                <div>
+                    <div id="user-name">Usuario</div>
+                    <small>Estudiante</small>
+                </div>
+                <div id="user-avatar-circle" class="user-avatar">U</div>
+            </div>
+        </div>
+
+        <div class="dashboard-nav">
+            <a href="#" class="nav-tab active" onclick="showTab('cursos'); return false;"><i class="fas fa-book"></i> Mis Cursos</a>
+            <a href="#" class="nav-tab" onclick="showTab('progreso'); return false;"><i class="fas fa-chart-bar"></i> Mi Progreso</a>
+            <a href="#" class="nav-tab" onclick="showTab('certificados'); return false;"><i class="fas fa-certificate"></i> Certificados</a>
+            <a href="#" class="nav-tab" onclick="logout(); return false;" style="margin-left: auto; color: #d97654;"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- CURSOS TAB -->
+            <div id="cursos-tab" class="tab-content" style="display: block;">
+                <h2 style="margin-bottom: 30px;">Cursos Disponibles</h2>
+                <div class="courses-grid" id="courses-container"></div>
+            </div>
+
+            <!-- PROGRESO TAB -->
+            <div id="progreso-tab" class="tab-content" style="display: none;">
+                <h2 style="margin-bottom: 30px;">Tu Progreso de Aprendizaje</h2>
+                <div id="progress-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;"></div>
+            </div>
+
+            <!-- CERTIFICADOS TAB -->
+            <div id="certificados-tab" class="tab-content" style="display: none;">
+                <h2 style="margin-bottom: 30px;">Certificados Obtenidos</h2>
+                <div id="certificates-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="modules-view" class="modules-view">
+        <div class="modules-header">
+            <h1 id="module-title">Módulo Cargando...</h1>
+            <button onclick="backToDashboard()"><i class="fas fa-arrow-left"></i> Volver</button>
+        </div>
+        <div class="modules-content" id="modules-content"></div>
+    </div>
+
+
+    <script>
+        // ============================================
+        // DEVICE SELECTOR FUNCTIONS
+        // ============================================
+        
+        let selectedDevice = 'desktop';
+
+        function selectDevice(device) {
+            selectedDevice = device;
+            
+            // Remove active class from all options
+            document.querySelectorAll('.device-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            
+            // Add active class to selected option
+            document.querySelector(`[data-device="${device}"]`).classList.add('active');
+        }
+
+        function startWithDevice() {
+            const overlay = document.getElementById('device-selector');
+            overlay.classList.add('hidden');
+            
+            // Apply device view class to body
+            document.body.classList.remove('view-mobile', 'view-tablet', 'view-desktop');
+            document.body.classList.add(`view-${selectedDevice}`);
+            
+            // Store in localStorage
+            localStorage.setItem('plantcare_device_view', selectedDevice);
+            
+            // Handle responsive adjustments
+            applyDeviceStyles();
+        }
+
+        function applyDeviceStyles() {
+            const viewport = document.querySelector('meta[name="viewport"]');
+            
+            if (selectedDevice === 'mobile') {
+                // Mobile view - set smaller viewport
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0');
+                document.documentElement.style.fontSize = '14px';
+            } else if (selectedDevice === 'tablet') {
+                // Tablet view - medium viewport
+                viewport.setAttribute('content', 'width=768px, initial-scale=1.0, maximum-scale=5.0');
+                document.documentElement.style.fontSize = '15px';
+            } else {
+                // Desktop view - full viewport
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0');
+                document.documentElement.style.fontSize = '16px';
+            }
+        }
+
+        // Check for saved device preference on page load
+        window.addEventListener('load', function() {
+            const savedDevice = localStorage.getItem('plantcare_device_view');
+            if (savedDevice) {
+                selectDevice(savedDevice);
+                startWithDevice();
+            }
+        });
+
+        let users = JSON.parse(localStorage.getItem('plantcare_users')) || [];
+
+        let currentUser = null;
+
+        const courses = [
+            { id: 1, title: 'Introducción a las Plantas', image: 'assets/images/courses/curso1.jpg', description: 'Aprende lo básico sobre botánica', progress: 65 },
+            { id: 2, title: 'Plantas de Escritorio', image: 'assets/images/courses/curso2.jpg', description: 'Plantas perfectas para compartimentos', progress: 40 },
+            { id: 3, title: 'Jardinería Vertical', image: 'assets/images/courses/curso3.jpg', description: 'Crea muros verdes en tu oficina', progress: 80 },
+            { id: 4, title: 'Mantenimiento y Cuidados', image: 'assets/images/courses/curso4.jpg', description: 'Mantén tus plantas saludables', progress: 30 },
+            { id: 5, title: 'Feng Shui Verde', image: 'assets/images/courses/curso5.jpg', description: 'Armonía a través de las plantas', progress: 15 },
+            { id: 6, title: 'Sostenibilidad Ambiental', image: 'assets/images/courses/curso6.jpg', description: 'Plantas y responsabilidad ecológica', progress: 0 }
+        ];
+
+        // Datos de módulos
+        const modules = {
+            1: {
+                courseId: 1,
+                courseTitle: 'Introducción a las Plantas',
+                moduleName: 'MÓDULO 1: ¿Qué es una planta?',
+                sections: [
+                    {
+                        title: '1.1 Definición biológica de planta',
+                        content: `
+                            <p><strong>Una planta es un organismo vivo perteneciente al reino Plantae.</strong> Se caracteriza principalmente por ser autótrofa, es decir, capaz de producir su propio alimento mediante el proceso de fotosíntesis. A diferencia de los animales, las plantas no necesitan consumir otros organismos para obtener energía, ya que transforman la luz solar en energía química.</p>
+                            
+                            <p>Desde el punto de vista científico, las plantas son organismos multicelulares, con células eucariotas que poseen una estructura llamada cloroplasto, donde ocurre la fotosíntesis. Además, sus células contienen pared celular compuesta de celulosa, lo que les da rigidez estructural.</p>
+                            
+                            <h4>¿Por qué las plantas son tan importantes?</h4>
+                            <p>Las plantas no solo son organismos pasivos que decoran el ambiente. Son fundamentales para la vida en la Tierra porque:</p>
+                            <ul>
+                                <li>Producen oxígeno</li>
+                                <li>Regulan el clima</li>
+                                <li>Forman la base de las cadenas alimenticias</li>
+                                <li>Mantienen el equilibrio ecológico</li>
+                            </ul>
+                            <p><strong>Sin plantas, la vida humana y animal no sería posible.</strong></p>
+                        `
+                    },
+                    {
+                        title: '1.2 Características principales de las plantas',
+                        content: `
+                            <p>Para comprender mejor qué es una planta, debemos analizar sus características esenciales:</p>
+                            <ul>
+                                <li><strong>Son autótrofas:</strong> fabrican su propio alimento</li>
+                                <li><strong>Realizan fotosíntesis</strong> gracias a la clorofila</li>
+                                <li><strong>Poseen pared celular rígida</strong></li>
+                                <li><strong>Generalmente no se desplazan</strong></li>
+                                <li><strong>Responden a estímulos</strong> como luz, agua y gravedad</li>
+                            </ul>
+                            <p>Aunque parecen estáticas, las plantas reaccionan constantemente al entorno. Por ejemplo, crecen hacia la luz (<strong>fototropismo</strong>) o desarrollan raíces hacia abajo por efecto de la gravedad (<strong>geotropismo</strong>).</p>
+                        `
+                    },
+                    {
+                        title: '1.3 Clasificación general de las plantas',
+                        content: `
+                            <p>Las plantas pueden clasificarse de distintas formas. En este módulo veremos una clasificación básica para principiantes.</p>
+                            
+                            <h4>1. Árboles</h4>
+                            <p>Son plantas de gran tamaño con un tronco leñoso bien definido. Pueden vivir muchos años.<br><em>Ejemplo: pino, mango, roble.</em></p>
+                            
+                            <h4>2. Arbustos</h4>
+                            <p>Son plantas leñosas más pequeñas que los árboles y suelen tener varios tallos desde la base.<br><em>Ejemplo: rosales, hibisco.</em></p>
+                            
+                            <h4>3. Plantas herbáceas</h4>
+                            <p>No poseen tallo leñoso. Son más flexibles y generalmente de menor tamaño.<br><em>Ejemplo: lechuga, albahaca, girasol.</em></p>
+                            
+                            <h4>4. Plantas con flor y sin flor</h4>
+                            <p>Las <strong>plantas con flor</strong> producen semillas dentro de frutos.<br>Las <strong>plantas sin flor</strong>, como los helechos, se reproducen por esporas.</p>
+                            
+                            <p>Esta clasificación ayuda a comprender la diversidad del reino vegetal y facilita su estudio.</p>
+                        `
+                    },
+                    {
+                        title: '1.4 Importancia ecológica de las plantas',
+                        content: `
+                            <p>Las plantas cumplen funciones vitales en los ecosistemas:</p>
+                            <ul>
+                                <li><strong>Producción de oxígeno:</strong> Durante la fotosíntesis liberan oxígeno, indispensable para la respiración</li>
+                                <li><strong>Captura de dióxido de carbono:</strong> Ayudan a reducir gases de efecto invernadero</li>
+                                <li><strong>Regulación del clima:</strong> Influyen en la humedad y temperatura del ambiente</li>
+                                <li><strong>Protección del suelo:</strong> Sus raíces evitan la erosión</li>
+                                <li><strong>Fuente de alimento:</strong> Son el primer nivel de la cadena alimenticia</li>
+                            </ul>
+                            <p><strong>Las plantas no solo embellecen espacios; sostienen el equilibrio del planeta.</strong></p>
+                        `
+                    },
+                    {
+                        title: '1.5 Aplicación práctica para el estudiante',
+                        content: `
+                            <p>Al finalizar este módulo, el estudiante debe ser capaz de:</p>
+                            <ul>
+                                <li>Definir qué es una planta desde el punto de vista biológico</li>
+                                <li>Reconocer sus características principales</li>
+                                <li>Diferenciar entre árboles, arbustos y herbáceas</li>
+                                <li>Explicar por qué las plantas son esenciales para la vida</li>
+                            </ul>
+                            <p>¡Ahora probemos tus conocimientos con un quiz interactivo!</p>
+                        `
+                    }
+                ],
+                quiz: {
+                    title: '✅ Quiz: Evaluando tus conocimientos',
+                    questions: [
+                        {
+                            question: '¿Cuál es la característica principal que define a una planta?',
+                            options: [
+                                { text: 'Que tiene hojas verdes', correct: false },
+                                { text: 'Que es autótrofa y produce alimento mediante fotosíntesis', correct: true },
+                                { text: 'Que no se puede mover', correct: false },
+                                { text: 'Que tiene raíces', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál de los siguientes es un ejemplo de planta herbácea?',
+                            options: [
+                                { text: 'Roble', correct: false },
+                                { text: 'Rosales', correct: false },
+                                { text: 'Girasol', correct: true },
+                                { text: 'Pino', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué estructura de la planta es responsable de la fotosíntesis?',
+                            options: [
+                                { text: 'La raíz', correct: false },
+                                { text: 'El cloroplasto', correct: true },
+                                { text: 'El tallo', correct: false },
+                                { text: 'La flor', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es el proceso mediante el cual una planta crece hacia la luz?',
+                            options: [
+                                { text: 'Geotropismo', correct: false },
+                                { text: 'Fototropismo', correct: true },
+                                { text: 'Hidrotropismo', correct: false },
+                                { text: 'Fotosíntesis', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Por qué son importantes las plantas para el equilibrio del planeta?',
+                            options: [
+                                { text: 'Solo porque son bonitas', correct: false },
+                                { text: 'Porque producen oxígeno, regulan el clima y forman la base de las cadenas alimenticias', correct: true },
+                                { text: 'Porque duran muchos años', correct: false },
+                                { text: 'Porque tienen flores', correct: false }
+                            ]
+                        }
+                    ]
+                }
+            },
+            2: {
+                courseId: 2,
+                courseTitle: 'Plantas de Escritorio',
+                moduleName: 'MÓDULO 2: Introducción a las Plantas de Escritorio y Selección Adecuada',
+                sections: [
+                    {
+                        title: 'Introducción: La Importancia de la Naturaleza en el Trabajo',
+                        content: `
+                            <p>En los entornos actuales de trabajo y estudio, pasamos una gran cantidad de tiempo frente a escritorios, pantallas y espacios cerrados. Incorporar una planta en este entorno no es únicamente una decisión estética; es una elección que puede influir en el <strong>bienestar, la productividad y la calidad del ambiente</strong>.</p>
+                            
+                            <p>Este módulo introduce el concepto de plantas de escritorio, sus características principales y los <strong>criterios fundamentales para seleccionar la más adecuada</strong> según las condiciones del espacio.</p>
+                        `
+                    },
+                    {
+                        title: '1. ¿Qué son las plantas de escritorio?',
+                        content: `
+                            <p>Las plantas de escritorio son <strong>especies vegetales adaptadas a espacios interiores y de dimensiones reducidas</strong>. Se caracterizan por su tamaño compacto, su resistencia y su capacidad de desarrollarse con luz indirecta o limitada.</p>
+                            
+                            <p>A diferencia de plantas de exterior que requieren exposición directa al sol, grandes extensiones de suelo o cuidados especializados, las plantas de escritorio están pensadas para <strong>convivir en oficinas, habitaciones, estudios o espacios de trabajo</strong> con condiciones ambientales controladas.</p>
+                            
+                            <h4>Características de adaptabilidad:</h4>
+                            <ul>
+                                <li>Toleran iluminación indirecta o moderada</li>
+                                <li>Se adaptan a ambientes con aire acondicionado</li>
+                                <li>Resisten espacios con ventilación limitada</li>
+                                <li>Requieren rutinas de cuidado básicas</li>
+                            </ul>
+                            
+                            <p><strong>Su adaptabilidad es uno de los factores que las convierte en una opción viable</strong> para personas que desean integrar naturaleza en su entorno sin asumir un mantenimiento complejo.</p>
+                        `
+                    },
+                    {
+                        title: '2. Importancia de las plantas en espacios de trabajo',
+                        content: `
+                            <p>La presencia de elementos naturales en ambientes cerrados ha sido asociada con <strong>múltiples beneficios psicológicos y ambientales</strong>. Aunque una planta pequeña no transforma completamente el entorno, sí contribuye de manera significativa a mejorar la experiencia dentro del espacio.</p>
+                            
+                            <h4>Principales beneficios:</h4>
+                            <ul>
+                                <li><strong>Reducción del estrés:</strong> La presencia de plantas puede generar una sensación de calma y equilibrio visual, disminuyendo la percepción de tensión en jornadas prolongadas</li>
+                                <li><strong>Mejora de la concentración:</strong> Un entorno visualmente equilibrado favorece la atención y reduce la monotonía del espacio de trabajo</li>
+                                <li><strong>Aporte estético y ambiental:</strong> El color verde introduce contraste y vitalidad en espacios dominados por pantallas y documentos</li>
+                                <li><strong>Conexión con la naturaleza:</strong> Incluso en ambientes urbanos, una planta permite mantener un vínculo simbólico con procesos naturales</li>
+                            </ul>
+                            
+                            <p>Además, el simple acto de cuidar una planta fomenta <strong>hábitos de responsabilidad y observación</strong>, promoviendo una relación más consciente con el entorno.</p>
+                        `
+                    },
+                    {
+                        title: '3. Características de una planta adecuada para escritorio',
+                        content: `
+                            <p>No todas las plantas son apropiadas para espacios reducidos. Para seleccionar correctamente, es necesario considerar ciertos <strong>criterios fundamentales</strong>.</p>
+                            
+                            <h4>Criterios de selección:</h4>
+                            <ul>
+                                <li><strong>Resistencia:</strong> La planta debe tolerar pequeñas variaciones en el riego o en la iluminación. En un entorno laboral, no siempre es posible mantener una rutina estricta de cuidado</li>
+                                <li><strong>Bajo requerimiento de luz directa:</strong> La mayoría de escritorios no reciben luz solar intensa. Se recomienda elegir especies que prosperen con luz indirecta</li>
+                                <li><strong>Tamaño proporcional al espacio:</strong> Una planta demasiado grande puede resultar incómoda. El equilibrio entre funcionalidad y estética es esencial</li>
+                                <li><strong>Mantenimiento sencillo:</strong> Especialmente para principiantes, es preferible optar por especies que no requieran podas frecuentes ni condiciones ambientales específicas</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        title: '4. Evaluación del entorno antes de elegir',
+                        content: `
+                            <p>Antes de adquirir una planta, es <strong>recomendable analizar las condiciones reales del espacio</strong> donde será ubicada.</p>
+                            
+                            <h4>Aspectos a evaluar:</h4>
+                            <ul>
+                                <li><strong>Iluminación:</strong> Determinar si el área recibe luz natural directa, indirecta o principalmente artificial</li>
+                                <li><strong>Humedad y ventilación:</strong> Ambientes con aire acondicionado constante pueden ser más secos, lo que influye en el tipo de especie adecuada</li>
+                                <li><strong>Tiempo disponible para el cuidado:</strong> Es importante considerar la frecuencia con la que se podrá regar, limpiar hojas o supervisar el estado general</li>
+                                <li><strong>Espacio físico disponible:</strong> El tamaño del escritorio debe permitir una ubicación estable sin interferir con el trabajo diario</li>
+                            </ul>
+                            
+                            <p><strong>Una selección informada aumenta significativamente las probabilidades de éxito</strong> en el mantenimiento de la planta.</p>
+                        `
+                    }
+                ],
+                quiz: {
+                    questions: [
+                        {
+                            question: '¿Cuál es la característica principal de una planta de escritorio?',
+                            options: [
+                                { text: 'Requiere exposición constante al sol directo', correct: false },
+                                { text: 'Se adapta a espacios pequeños y luz indirecta', correct: true },
+                                { text: 'Necesita riego diario obligatorio', correct: false },
+                                { text: 'Solo puede sobrevivir en exteriores', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Por qué es importante analizar la iluminación del espacio antes de elegir una planta?',
+                            options: [
+                                { text: 'Porque todas las plantas crecen igual en cualquier entorno', correct: false },
+                                { text: 'Porque la iluminación no influye en el crecimiento', correct: false },
+                                { text: 'Porque algunas plantas no toleran niveles bajos de luz', correct: true },
+                                { text: 'Porque el tamaño del escritorio es más importante que la luz', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué efecto puede tener el aire acondicionado constante en una planta de escritorio?',
+                            options: [
+                                { text: 'Aumenta naturalmente la humedad del ambiente', correct: false },
+                                { text: 'Puede resecar el ambiente y afectar la planta', correct: true },
+                                { text: 'Mejora su proceso de fotosíntesis', correct: false },
+                                { text: 'No genera ningún impacto', correct: false }
+                            ]
+                        },
+                        {
+                            question: 'Uno de los beneficios psicológicos de tener plantas en el espacio de trabajo es:',
+                            options: [
+                                { text: 'Incrementar el ruido ambiental', correct: false },
+                                { text: 'Sustituir la ventilación natural', correct: false },
+                                { text: 'Reducir la sensación de estrés', correct: true },
+                                { text: 'Eliminar la necesidad de descansos', correct: false }
+                            ]
+                        },
+                        {
+                            question: 'Si una persona dispone de poco tiempo para el cuidado de plantas, lo más recomendable es elegir:',
+                            options: [
+                                { text: 'Una planta delicada con requerimientos específicos', correct: false },
+                                { text: 'Una especie resistente y de bajo mantenimiento', correct: true },
+                                { text: 'Una planta que requiera poda constante', correct: false },
+                                { text: 'Una especie tropical exigente', correct: false }
+                            ]
+                        }
+                    ]
+                }
+            },
+            3: {
+                courseId: 3,
+                courseTitle: 'Jardinería Vertical',
+                moduleName: 'MÓDULO 3: Jardinería Vertical',
+                sections: [
+                    {
+                        title: 'Introducción: Soluciones Verticales para Espacios Limitados',
+                        content: `
+                            <p>La jardinería vertical surge como una <strong>solución innovadora para integrar vegetación en espacios reducidos</strong>. En entornos urbanos, oficinas modernas y áreas interiores donde el espacio horizontal es limitado, aprovechar las superficies verticales permite <strong>incorporar naturaleza sin afectar la funcionalidad del lugar</strong>.</p>
+                            
+                            <p>Este módulo aborda el concepto de jardinería vertical, sus beneficios, tipos de estructuras y consideraciones técnicas para su implementación en interiores.</p>
+                        `
+                    },
+                    {
+                        title: '1. ¿Qué es la jardinería vertical?',
+                        content: `
+                            <p>La jardinería vertical consiste en el <strong>cultivo de plantas utilizando superficies verticales</strong> como paredes, paneles o estructuras diseñadas específicamente para sostener vegetación en posición elevada.</p>
+                            
+                            <p>A diferencia de las macetas tradicionales colocadas sobre escritorios o suelos, este sistema permite <strong>distribuir plantas en altura, optimizando el espacio disponible</strong>.</p>
+                            
+                            <h4>Formas de jardinería vertical en oficinas:</h4>
+                            <ul>
+                                <li>Paneles modulares con bolsillos para plantas</li>
+                                <li>Estructuras metálicas con macetas colgantes</li>
+                                <li>Muros verdes decorativos</li>
+                                <li>Sistemas hidropónicos verticales</li>
+                            </ul>
+                            
+                            <p>Su aplicación no es únicamente <strong>decorativa; también puede cumplir funciones ambientales y organizativas</strong> dentro del espacio.</p>
+                        `
+                    },
+                    {
+                        title: '2. Beneficios de la jardinería vertical en interiores',
+                        content: `
+                            <h4>Optimización del espacio</h4>
+                            <p>El principal beneficio es el aprovechamiento de paredes o superficies verticales. Esto permite incorporar <strong>múltiples plantas sin ocupar áreas destinadas a circulación o trabajo</strong>.</p>
+                            
+                            <h4>Mejora estética</h4>
+                            <p>Los muros verdes generan impacto visual positivo, rompen la uniformidad de superficies planas y aportan dinamismo al diseño interior.</p>
+                            
+                            <h4>Regulación ambiental</h4>
+                            <p>Dependiendo de la densidad vegetal, pueden:</p>
+                            <ul>
+                                <li>Mejorar la percepción de frescura</li>
+                                <li>Reducir ligeramente el ruido ambiental</li>
+                                <li>Generar mayor confort visual</li>
+                            </ul>
+                            
+                            <h4>Organización de espacios</h4>
+                            <p>En oficinas abiertas, los paneles vegetales pueden funcionar como <strong>divisores naturales entre áreas de trabajo</strong>, manteniendo una sensación de apertura sin recurrir a estructuras rígidas.</p>
+                        `
+                    },
+                    {
+                        title: '3. Tipos de sistemas de jardinería vertical',
+                        content: `
+                            <h4>Sistema con macetas individuales</h4>
+                            <p>Es el método más sencillo. Consiste en instalar soportes o repisas en la pared donde se colocan macetas ligeras.</p>
+                            <ul>
+                                <li><strong>Ventajas:</strong> Bajo costo, fácil mantenimiento, flexibilidad</li>
+                                <li><strong>Desventajas:</strong> Requiere instalación segura, puede generar goteo</li>
+                            </ul>
+                            
+                            <h4>Panel modular con bolsillos</h4>
+                            <p>Estructuras textiles o plásticas con compartimentos diseñados para alojar plantas directamente.</p>
+                            <ul>
+                                <li><strong>Ventajas:</strong> Distribución uniforme, diseño compacto</li>
+                                <li><strong>Desventajas:</strong> Requiere control cuidadoso del riego, puede necesitar refuerzo</li>
+                            </ul>
+                            
+                            <h4>Muro verde estructural</h4>
+                            <p>Sistema avanzado que incorpora riego automatizado y sustratos especializados.</p>
+                            <ul>
+                                <li><strong>Ventajas:</strong> Impacto visual profesional, distribución eficiente del agua</li>
+                                <li><strong>Desventajas:</strong> Mayor costo, requiere mantenimiento técnico</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        title: '4. Factores técnicos a considerar',
+                        content: `
+                            <p>Antes de implementar un sistema de jardinería vertical en interiores, es necesario evaluar:</p>
+                            
+                            <ul>
+                                <li><strong>Iluminación disponible:</strong> Las paredes deben recibir luz natural o contar con iluminación artificial adecuada</li>
+                                <li><strong>Peso estructural:</strong> Las superficies deben soportar el peso de las plantas, el sustrato y el agua</li>
+                                <li><strong>Sistema de riego:</strong> Es importante evitar filtraciones o acumulación de humedad que puedan afectar la infraestructura</li>
+                                <li><strong>Ventilación:</strong> Una circulación de aire adecuada previene problemas de hongos o exceso de humedad</li>
+                            </ul>
+                            
+                            <p>Una evaluación técnica previa garantiza la durabilidad y el éxito del sistema.</p>
+                        `
+                    },
+                    {
+                        title: '5. Selección de plantas para jardinería vertical',
+                        content: `
+                            <p>No todas las plantas son aptas para sistemas verticales. Se recomiendan especies:</p>
+                            
+                            <ul>
+                                <li>De crecimiento moderado</li>
+                                <li>Con raíces no excesivamente profundas</li>
+                                <li>Resistentes a variaciones de humedad</li>
+                                <li>Adaptables a luz indirecta</li>
+                            </ul>
+                            
+                            <p>En entornos de oficina suelen utilizarse <strong>especies colgantes o compactas</strong>, ya que se adaptan mejor a estos sistemas.</p>
+                        `
+                    }
+                ],
+                quiz: {
+                    questions: [
+                        {
+                            question: '¿Cuál es el objetivo principal de la jardinería vertical?',
+                            options: [
+                                { text: 'Reemplazar completamente las plantas de exterior', correct: false },
+                                { text: 'Aprovechar superficies verticales para integrar plantas en espacios reducidos', correct: true },
+                                { text: 'Aumentar el riego en las plantas', correct: false },
+                                { text: 'Eliminar la necesidad de luz natural', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es un beneficio ambiental de la jardinería vertical en espacios cerrados?',
+                            options: [
+                                { text: 'Completar toda la función de aire acondicionado', correct: false },
+                                { text: 'Mejorar la percepción de frescura y reducir ruido ambiental', correct: true },
+                                { text: 'Eliminar la necesidad de ventilación', correct: false },
+                                { text: 'Aumentar la temperatura del espacio', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál de los siguientes sistemas de jardinería vertical es el más económico?',
+                            options: [
+                                { text: 'Muro verde estructural con riego automatizado', correct: false },
+                                { text: 'Sistema con macetas individuales en soportes', correct: true },
+                                { text: 'Panel hidropónico especializado', correct: false },
+                                { text: 'Sistema con riego conectado a tuberías', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué factor técnico es crítico antes de instalar jardinería vertical?',
+                            options: [
+                                { text: 'Solo el color de la pared', correct: false },
+                                { text: 'La capacidad de la pared para soportar peso y la iluminación disponible', correct: true },
+                                { text: 'El tipo de mobiliario en la oficina', correct: false },
+                                { text: 'La edad del edificio', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué características debe tener una planta para sistema vertical?',
+                            options: [
+                                { text: 'Raíces profundas y crecimiento rápido', correct: false },
+                                { text: 'Crecimiento moderado, raíces no profundas y resistencia a variaciones de humedad', correct: true },
+                                { text: 'Requerir luz directa constante', correct: false },
+                                { text: 'Ser de gran tamaño', correct: false }
+                            ]
+                        }
+                    ]
+                }
+            },
+            4: {
+                courseId: 4,
+                courseTitle: 'Mantenimiento y Cuidados',
+                moduleName: 'MÓDULO 4: Mantenimiento y Cuidados',
+                sections: [
+                    {
+                        title: 'Introducción: El Arte de Mantener Plantas Saludables',
+                        content: `
+                            <p>El éxito al tener plantas de escritorio no depende únicamente de elegir una especie adecuada. <strong>El verdadero desafío consiste en mantenerla saludable a lo largo del tiempo</strong>.</p>
+                            
+                            <p>El mantenimiento no requiere conocimientos avanzados de botánica, pero sí <strong>constancia, observación y comprensión de las necesidades básicas</strong> de la planta.</p>
+                            
+                            <p>Este módulo aborda los principios fundamentales del cuidado en interiores, incluyendo riego, iluminación, nutrición, poda y prevención de problemas comunes.</p>
+                        `
+                    },
+                    {
+                        title: '1. El riego: equilibrio y frecuencia',
+                        content: `
+                            <p>Uno de los errores más comunes es el <strong>exceso de agua</strong>. Muchas personas asumen que regar con frecuencia garantiza el crecimiento, cuando en realidad <strong>puede provocar daños graves en las raíces</strong>.</p>
+                            
+                            <h4>Principios básicos del riego</h4>
+                            <p>Las plantas necesitan agua para transportar nutrientes y mantener su estructura celular. Sin embargo, el sustrato debe permitir drenaje adecuado.</p>
+                            
+                            <h4>Factores que influyen en la frecuencia:</h4>
+                            <ul>
+                                <li>Tipo de planta</li>
+                                <li>Tamaño de la maceta</li>
+                                <li>Tipo de sustrato</li>
+                                <li>Nivel de humedad ambiental</li>
+                                <li>Temperatura del espacio</li>
+                            </ul>
+                            
+                            <h4>Señales de problemas por riego:</h4>
+                            <p><strong>Exceso de agua:</strong> Pudrición de raíces, hongos, hojas amarillas, mal olor</p>
+                            <p><strong>Falta de agua:</strong> Hojas secas o marchitas</p>
+                            
+                            <p>El objetivo es <strong>mantener un equilibrio estable</strong>, verificando la humedad del sustrato antes de regar.</p>
+                        `
+                    },
+                    {
+                        title: '2. Iluminación adecuada',
+                        content: `
+                            <p>La luz es una <strong>fuente esencial de energía para la planta</strong>. En espacios interiores, la iluminación suele ser indirecta o artificial, por lo que es importante ubicar la planta estratégicamente.</p>
+                            
+                            <h4>Recomendaciones generales:</h4>
+                            <ul>
+                                <li>Colocar la planta cerca de ventanas con luz indirecta</li>
+                                <li>Evitar exposición prolongada al sol directo si la especie no lo tolera</li>
+                                <li>Rotar la maceta periódicamente para crecimiento uniforme</li>
+                            </ul>
+                            
+                            <h4>Señales de poca luz:</h4>
+                            <ul>
+                                <li>Crecimiento débil o alargado</li>
+                                <li>Pérdida de color intenso en las hojas</li>
+                                <li>Desarrollo lento</li>
+                            </ul>
+                            
+                            <p>En estos casos, puede considerarse el uso de <strong>iluminación artificial especializada para plantas</strong>, si el entorno lo permite.</p>
+                        `
+                    },
+                    {
+                        title: '3. Nutrición y fertilización',
+                        content: `
+                            <p>Además de agua y luz, las plantas necesitan nutrientes presentes en el sustrato. Con el tiempo, estos nutrientes se agotan, especialmente en <strong>macetas pequeñas</strong>.</p>
+                            
+                            <p>La fertilización consiste en aportar nutrientes adicionales para mantener el crecimiento saludable.</p>
+                            
+                            <h4>Principales nutrientes:</h4>
+                            <ul>
+                                <li><strong>Nitrógeno:</strong> Favorece el crecimiento de hojas</li>
+                                <li><strong>Fósforo:</strong> Estimula el desarrollo de raíces</li>
+                                <li><strong>Potasio:</strong> Fortalece la estructura general</li>
+                            </ul>
+                            
+                            <h4>Recomendaciones:</h4>
+                            <ul>
+                                <li>Utilizar fertilizantes específicos para plantas de interior</li>
+                                <li>Aplicar en dosis controladas</li>
+                                <li>Respetar los intervalos indicados por el fabricante</li>
+                            </ul>
+                            
+                            <p><strong>Importante:</strong> Aplicar fertilizante en exceso puede generar acumulación de sales y dañar las raíces.</p>
+                        `
+                    },
+                    {
+                        title: '4. Poda, limpieza y prevención de plagas',
+                        content: `
+                            <h4>Poda y limpieza</h4>
+                            <p>La poda no siempre es necesaria en plantas pequeñas, pero sí es recomendable <strong>retirar hojas secas, dañadas o enfermas</strong>.</p>
+                            
+                            <ul>
+                                <li>Mejora la apariencia estética</li>
+                                <li>Previene propagación de enfermedades</li>
+                                <li>Favorece el crecimiento saludable</li>
+                            </ul>
+                            
+                            <p>También es importante <strong>limpiar el polvo acumulado en las hojas</strong>, especialmente en entornos de oficina. El polvo interferir con la fotosíntesis. Utilizar un paño ligeramente húmedo.</p>
+                            
+                            <h4>Control de plagas</h4>
+                            <p>Aunque las plantas de interior están menos expuestas, pueden aparecer:</p>
+                            <ul>
+                                <li>Pulgones</li>
+                                <li>Ácaros</li>
+                                <li>Mosquitos del sustrato</li>
+                            </ul>
+                            
+                            <p><strong>Señales de alerta:</strong> Manchas en las hojas, presencia de pequeños insectos, decaimiento general.</p>
+                            <p><strong>Soluciones:</strong> Limpieza manual o productos específicos para interiores suelen ser suficientes en fases tempranas.</p>
+                        `
+                    },
+                    {
+                        title: '5. Rutina básica de mantenimiento',
+                        content: `
+                            <p>Para simplificar el cuidado, se recomienda <strong>establecer una rutina semanal</strong>:</p>
+                            
+                            <ul>
+                                <li>Revisar humedad del sustrato</li>
+                                <li>Observar hojas en busca de manchas o cambios de color</li>
+                                <li>Verificar estabilidad de la maceta</li>
+                                <li>Limpiar polvo acumulado</li>
+                                <li>Ajustar ubicación si es necesario</li>
+                            </ul>
+                            
+                            <p><strong>Una revisión periódica evita problemas mayores y facilita el mantenimiento a largo plazo</strong>.</p>
+                            
+                            <p>Mantener un registro simple de observaciones puede ayudarte a identificar patrones y necesidades específicas de tu planta.</p>
+                        `
+                    }
+                ],
+                quiz: {
+                    questions: [
+                        {
+                            question: '¿Cuál es el error más común al cuidar plantas de escritorio?',
+                            options: [
+                                { text: 'No proporcionarles suficiente sombra', correct: false },
+                                { text: 'Exceso de riego que causa pudrición de raíces', correct: true },
+                                { text: 'Cambiarlas de maceta muy frecuentemente', correct: false },
+                                { text: 'Iluminarlas con luz solar directa siempre', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál de los siguientes es un signo de falta de agua en una planta?',
+                            options: [
+                                { text: 'Presencia de hongos en el sustrato', correct: false },
+                                { text: 'Olor desagradable en la tierra', correct: false },
+                                { text: 'Hojas secas o marchitas', correct: true },
+                                { text: 'Crecimiento excesivamente rápido', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es la frecuencia recomendada para rotar una maceta de escritorio?',
+                            options: [
+                                { text: 'Diariamente', correct: false },
+                                { text: 'Semanalmente para asegurar crecimiento uniforme', correct: true },
+                                { text: 'Solo cuando cambia la estación', correct: false },
+                                { text: 'Nunca es necesario rotarla', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es el objetivo principal de la fertilización en plantas de interior?',
+                            options: [
+                                { text: 'Cambiar el color de las hojas', correct: false },
+                                { text: 'Compensar nutrientes agotados en macetas pequeñas', correct: true },
+                                { text: 'Acelerar infinitamente el crecimiento sin límites', correct: false },
+                                { text: 'Reemplazar el sustrato completamente cada mes', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué debe incluir una rutina básica de mantenimiento semanal?',
+                            options: [
+                                { text: 'Solo regar sin revisar nada más', correct: false },
+                                { text: 'Revisar humedad, observar hojas, limpiar polvo y ajustar ubicación', correct: true },
+                                { text: 'Cambiar completamente el sustrato cada semana', correct: false },
+                                { text: 'Solo podarlo sin más inspecciones', correct: false }
+                            ]
+                        }
+                    ]
+                }
+            },
+            5: {
+                courseId: 5,
+                courseTitle: 'Feng Shui Verde',
+                moduleName: 'MÓDULO 5: Feng Shui Verde',
+                sections: [
+                    {
+                        title: '1. ¿Qué es el Feng Shui?',
+                        content: `
+                            <p>El <strong>Feng Shui es una práctica tradicional de origen chino</strong> que estudia la relación entre las personas y su entorno físico. Su objetivo es organizar los espacios de manera que favorezcan la armonía, el flujo adecuado de energía y el bienestar general.</p>
+                            
+                            <p>Aunque sus fundamentos tienen un componente filosófico y cultural, muchos de sus principios pueden aplicarse desde una perspectiva de diseño ambiental y ergonomía.</p>
+                            
+                            <p>En el contexto de oficinas y escritorios, el Feng Shui enfatiza:</p>
+                            
+                            <ul>
+                                <li>Orden y claridad visual</li>
+                                <li>Distribución equilibrada de elementos</li>
+                                <li>Presencia de componentes naturales</li>
+                                <li>Evitar saturación o desorden</li>
+                            </ul>
+                            
+                            <p><strong>Estos principios transforman espacios desorganizados en entornos armoniosos y productivos</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '2. El papel de las plantas en el equilibrio del espacio',
+                        content: `
+                            <p>Dentro del Feng Shui, <strong>las plantas representan crecimiento, vitalidad y renovación</strong>. Su presencia simboliza desarrollo continuo y energía activa.</p>
+                            
+                            <p>En términos prácticos, las plantas contribuyen a:</p>
+                            
+                            <ul>
+                                <li>Suavizar líneas rectas y superficies rígidas</li>
+                                <li>Romper la monotonía visual de estructuras tecnológicas</li>
+                                <li>Crear puntos focales naturales</li>
+                                <li>Generar sensación de frescura y dinamismo</li>
+                            </ul>
+                            
+                            <p><strong>En un escritorio dominado por dispositivos electrónicos, cables y documentos, la incorporación de un elemento vegetal puede equilibrar completamente el conjunto</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '3. Ubicación estratégica de plantas en el escritorio',
+                        content: `
+                            <p>La colocación de una planta no debe ser arbitraria si se busca coherencia estética y funcional.</p>
+                            
+                            <p><strong>Algunas recomendaciones generales incluyen:</strong></p>
+                            
+                            <ul>
+                                <li><strong>Evitar obstrucción del espacio de trabajo</strong> - La planta debe complementar sin interferir con la productividad</li>
+                                <li><strong>Ubicar en esquinas visualmente vacías</strong> - Las esquinas suelen percibirse como estáticas; una planta puede revitalizarlas</li>
+                                <li><strong>Colocar cerca de fuentes de luz natural indirecta</strong> - Favorece salud de planta y armonía visual</li>
+                                <li><strong>Mantener equilibrio proporcional</strong> - El tamaño debe acordarse con el escritorio y espacio</li>
+                            </ul>
+                            
+                            <p><strong>La correcta ubicación mejora la organización y evita sensación de saturación</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '4. Tipos de plantas asociadas al Feng Shui',
+                        content: `
+                            <p>En la tradición del Feng Shui, algunas plantas son consideradas favorables por su forma, crecimiento o simbolismo.</p>
+                            
+                            <p><strong>Características recomendadas:</strong></p>
+                            
+                            <ul>
+                                <li>Hojas redondeadas o suaves</li>
+                                <li>Crecimiento vertical equilibrado</li>
+                                <li>Apariencia saludable y vigorosa</li>
+                            </ul>
+                            
+                            <p><strong>Se sugiere evitar plantas con aspecto marchito, espinas excesivas o apariencia descuidada</strong>, ya que pueden transmitir una sensación visual negativa.</p>
+                            
+                            <p>Más allá del simbolismo, <strong>el principio fundamental es mantener plantas saludables, bien cuidadas y visualmente integradas al entorno</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '5. Orden, limpieza y coherencia visual',
+                        content: `
+                            <p>El Feng Shui Verde no se limita a colocar plantas. También implica mantener:</p>
+                            
+                            <ul>
+                                <li>Macetas limpias y en buen estado</li>
+                                <li>Ausencia de hojas secas visibles</li>
+                                <li>Sustrato sin acumulación de residuos</li>
+                                <li>Organización del espacio circundante</li>
+                            </ul>
+                            
+                            <p><strong>Una planta saludable en un escritorio desordenado pierde coherencia visual</strong>. La armonía depende del conjunto.</p>
+                            
+                            <p>Cuando mantienes tu planta limpia y tu espacio organizado, creas un ambiente que refuerza tanto la productividad como el bienestar.</p>
+                        `
+                    },
+                    {
+                        title: '6. Aplicación práctica en entornos profesionales',
+                        content: `
+                            <p>En espacios laborales modernos, el <strong>Feng Shui Verde puede interpretarse como una estrategia de diseño consciente</strong> que combina:</p>
+                            
+                            <ul>
+                                <li>Elementos naturales integrados</li>
+                                <li>Organización eficiente del espacio</li>
+                                <li>Distribución equilibrada de componentes</li>
+                                <li>Bienestar ambiental optimizado</li>
+                            </ul>
+                            
+                            <p><strong>No se trata de aplicar reglas rígidas, sino de crear un entorno donde los elementos naturales apoyen la funcionalidad sin interrumpirla</strong>.</p>
+                            
+                            <p>Cuando implementas estos principios, transformas tu área de trabajo en un espacio que inspira creatividad, concentración y tranquilidad.</p>
+                        `
+                    }
+                ],
+                quiz: {
+                    questions: [
+                        {
+                            question: '¿Cuál es el objetivo principal del Feng Shui?',
+                            options: [
+                                { text: 'Decorar espacios con muchos elementos', correct: false },
+                                { text: 'Organizar espacios para favorecer la armonía y flujo de energía', correct: true },
+                                { text: 'Colocar plantas en todos los rincones', correct: false },
+                                { text: 'Seguir reglas rígidas sin flexibilidad', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué simbolizan las plantas dentro del Feng Shui?',
+                            options: [
+                                { text: 'Solo decoración visual', correct: false },
+                                { text: 'Crecimiento, vitalidad y renovación', correct: true },
+                                { text: 'Obstáculos al flujo de energía', correct: false },
+                                { text: 'Elementos que generan desorden', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Dónde es estratégico ubicar una planta en un escritorio?',
+                            options: [
+                                { text: 'En el centro obstruyendo el espacio de trabajo', correct: false },
+                                { text: 'En esquinas vacías con luz natural indirecta', correct: true },
+                                { text: 'Bajo luz solar directa todo el día', correct: false },
+                                { text: 'En lugares oscuros sin interferencias', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es una característica desfavorable en el Feng Shui?',
+                            options: [
+                                { text: 'Hojas redondeadas y suaves', correct: false },
+                                { text: 'Plantas con aspecto marchito o descuidado', correct: true },
+                                { text: 'Crecimiento vertical equilibrado', correct: false },
+                                { text: 'Apariencia saludable y vigorosa', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué elemento es clave para la coherencia visual del Feng Shui Verde?',
+                            options: [
+                                { text: 'Tener la máxima cantidad de plantas posible', correct: false },
+                                { text: 'Mantener orden, limpieza y plantas saludables', correct: true },
+                                { text: 'Seguir patrones antiguos sin adaptarlos', correct: false },
+                                { text: 'Usar solo plantas con flores vibrantes', correct: false }
+                            ]
+                        }
+                    ]
+                }
+            },
+            6: {
+                courseId: 6,
+                courseTitle: 'Sostenibilidad Ambiental',
+                moduleName: 'MÓDULO 6: Sostenibilidad Ambiental',
+                sections: [
+                    {
+                        title: '1. ¿Qué es la sostenibilidad ambiental?',
+                        content: `
+                            <p>La <strong>sostenibilidad ambiental</strong> es la capacidad de satisfacer nuestras necesidades presentes sin comprometer los recursos disponibles para las generaciones futuras.</p>
+                            
+                            <ul>
+                                <li>Busca equilibrio entre desarrollo económico y protección del medio ambiente</li>
+                                <li>Implica responsabilidad con los ecosistemas naturales</li>
+                                <li>Promueve el uso consciente de recursos limitados</li>
+                                <li>Considera el impacto a largo plazo de nuestras acciones</li>
+                            </ul>
+                            
+                            <p><strong>En el contexto de plantas y jardinería</strong>, la sostenibilidad significa cultivar de manera que respete el medio ambiente y preserve la biodiversidad.</p>
+                        `
+                    },
+                    {
+                        title: '2. Relación entre plantas de escritorio y sostenibilidad',
+                        content: `
+                            <p>Las plantas de escritorio en espacios de trabajo contribuyen significativamente a la sostenibilidad ambiental:</p>
+                            
+                            <ul>
+                                <li>Purifican el aire capturando dióxido de carbono</li>
+                                <li>Humidifican naturalmente el ambiente, reduciendo necesidad de aire acondicionado</li>
+                                <li>Reducen estrés y aumentan productividad sin consumo energético</li>
+                                <li>Ofrecen conexión con naturaleza en espacios urbanos</li>
+                                <li>Mejoran calidad de vida con mínimo impacto ambiental</li>
+                            </ul>
+                            
+                            <p><strong>Una sola planta de escritorio puede eliminar hasta 0.89 kilogramos de dióxido de carbono en un año</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '3. Elección responsable de plantas',
+                        content: `
+                            <p>Seleccionar plantas puede hacerse de forma sostenible y responsable:</p>
+                            
+                            <ul>
+                                <li><strong>Preferir plantas locales y nativas</strong> que se adapten naturalmente al clima</li>
+                                <li>Evitar especies en peligro de extinción o plantas silvestres extraídas de su hábitat</li>
+                                <li>Elegir proveedores certificados y viveros sostenibles</li>
+                                <li>Considerar propagar plantas a partir de esquejes en lugar de comprar nuevas</li>
+                                <li>Apoyar iniciativas de cultivo orgánico sin pesticidas dañinos</li>
+                            </ul>
+                            
+                            <p><strong>Cuando compres una planta, pregunta el origen y método de cultivo</strong> para asegurar que proviene de fuentes sostenibles.</p>
+                        `
+                    },
+                    {
+                        title: '4. Uso eficiente del agua',
+                        content: `
+                            <p>El agua es un recurso limitado que debe usarse responsablemente en el cuidado de plantas:</p>
+                            
+                            <ul>
+                                <li>Regar según necesidad real, no en horarios rigidamente fijos</li>
+                                <li>Usar técnicas de riego por goteo o aspersión eficiente</li>
+                                <li>Recolectar agua de lluvia para riego de plantas</li>
+                                <li>Permitir que el sustrato seque parcialmente entre riegos</li>
+                                <li>Elegir plantas tolerantes a sequía cuando sea posible</li>
+                            </ul>
+                            
+                            <p><strong>Una maceta con drenaje adecuado y sustrato aireado reduce el desperdicio de agua hasta un 30%</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '5. Sustratos y materiales sostenibles',
+                        content: `
+                            <p>La elección de materiales para macetas y sustratos tiene impacto ambiental importante:</p>
+                            
+                            <ul>
+                                <li><strong>Sustrato de turba alternativa</strong>: coco, corteza de pino compostada o compost casero</li>
+                                <li>Macetas de barro o cerámica en lugar de plástico desechable</li>
+                                <li>Reutilizar macetas antiguas o buscar opciones recicladas</li>
+                                <li>Macetas biodegradables para plantas a trasplantar</li>
+                                <li>Evitar plásticos de un solo uso</li>
+                            </ul>
+                            
+                            <p><strong>Reutilizar una maceta de barro evita que kilogramos de plástico terminen en vertederos</strong>.</p>
+                        `
+                    },
+                    {
+                        title: '6. Manejo de residuos orgánicos',
+                        content: `
+                            <p>Los residuos del cuidado de plantas pueden transformarse en recursos valiosos:</p>
+                            
+                            <ul>
+                                <li><strong>Compostaje en casa</strong>: hojas secas, restos de podas y sustrato usado</li>
+                                <li>Crear compost vermicompostador en apartamentos pequeños</li>
+                                <li>Usar compost casero como fertilizante natural y renovable</li>
+                                <li>Deshidratar flores para flores secas o popurrí de larga duración</li>
+                                <li>Donar plantas o sustratos que ya no uses en lugar de descartar</li>
+                            </ul>
+                            
+                            <p><strong>Una maceta de sustrato compostado evita comprar fertilizantes químicos</strong>, reduciendo costos y emisiones de carbono.</p>
+                        `
+                    },
+                    {
+                        title: '7. Cultura ambiental en espacios de trabajo',
+                        content: `
+                            <p>Promover sostenibilidad en el trabajo crea impacto colectivo:</p>
+                            
+                            <ul>
+                                <li>Compartir conocimiento sobre plantas sostenibles con colegas</li>
+                                <li>Crear jardines comunitarios en espacios compartidos</li>
+                                <li>Proponer iniciativas verdes en políticas organizacionales</li>
+                                <li>Enseñar a otros sobre huella ambiental del consumo</li>
+                                <li>Inspirar a otros a ser guardianes de la naturaleza</li>
+                            </ul>
+                            
+                            <p><strong>Cuando múltiples personas adoptan prácticas sostenibles, el efecto ambiental se multiplica exponencialmente</strong>. Tu ejemplo en el trabajo puede inspirar cambios en otros.</p>
+                        `
+                    }
+                ],
+                quiz: {
+                    questions: [
+                        {
+                            question: '¿Cuál es la definición de sostenibilidad ambiental?',
+                            options: [
+                                { text: 'Usar todos los recursos disponibles al máximo', correct: false },
+                                { text: 'Satisfacer necesidades presentes sin comprometer recursos para futuras generaciones', correct: true },
+                                { text: 'Dejar de usar recursos naturales completamente', correct: false },
+                                { text: 'Solo preocuparse por el medio ambiente sin beneficio económico', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuánto dióxido de carbono puede eliminar una planta de escritorio en un año?',
+                            options: [
+                                { text: '0.05 kilogramos', correct: false },
+                                { text: '0.89 kilogramos', correct: true },
+                                { text: '5 kilogramos', correct: false },
+                                { text: '10 kilogramos', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es la mejor alternativa a la turba para crear sustrato sostenible?',
+                            options: [
+                                { text: 'Plástico triturado', correct: false },
+                                { text: 'Arena del desierto', correct: false },
+                                { text: 'Coco, corteza de pino compostada o compost casero', correct: true },
+                                { text: 'Papel mojado', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Cuál es una ventaja de reutilizar macetas antiguas?',
+                            options: [
+                                { text: 'Las plantas crecen más rápido', correct: false },
+                                { text: 'Evita que kilogramos de plástico terminen en vertederos', correct: true },
+                                { text: 'Reduce la necesidad de agua', correct: false },
+                                { text: 'Mejora automáticamente la salud de la planta', correct: false }
+                            ]
+                        },
+                        {
+                            question: '¿Qué técnica reduce el desperdicio de agua en plantas hasta un 30%?',
+                            options: [
+                                { text: 'Regar diariamente sin verificar humedad', correct: false },
+                                { text: 'Una maceta con drenaje adecuado y sustrato aireado', correct: true },
+                                { text: 'Usar solo agua destilada', correct: false },
+                                { text: 'Riego una vez al mes para todas las plantas', correct: false }
+                            ]
+                        }
+                    ]
+                }
+            }
+        };
+
+
+        function openLoginModal() {
+            document.getElementById('auth-modal').classList.add('active');
+            document.getElementById('login-form-container').style.display = 'block';
+            document.getElementById('register-form-container').style.display = 'none';
+        }
+
+        function openRegisterModal() {
+            document.getElementById('auth-modal').classList.add('active');
+            document.getElementById('login-form-container').style.display = 'none';
+            document.getElementById('register-form-container').style.display = 'block';
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.remove('active');
+        }
+
+        function toggleForms() {
+            document.getElementById('login-form-container').style.display =
+                document.getElementById('login-form-container').style.display === 'none' ? 'block' : 'none';
+            document.getElementById('register-form-container').style.display =
+                document.getElementById('register-form-container').style.display === 'none' ? 'block' : 'none';
+        }
+
+
+        function showMessage(message, type, formType) {
+            const messageEl = document.getElementById(`${formType}-message`);
+            messageEl.textContent = message;
+            messageEl.className = `message show ${type}`;
+            setTimeout(() => messageEl.classList.remove('show'), 5000);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                currentUser = user;
+                showMessage('¡Bienvenido! Redirigiendo...', 'success', 'login');
+                setTimeout(() => {
+                    closeAuthModal();
+                    loadDashboard();
+                }, 1500);
+            } else {
+                showMessage('Email o contraseña incorrectos', 'error', 'login');
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+
+            if (password !== confirm) {
+                showMessage('Las contraseñas no coinciden', 'error', 'register');
+                return;
+            }
+
+            if (password.length < 6) {
+                showMessage('La contraseña debe tener al menos 6 caracteres', 'error', 'register');
+                return;
+            }
+
+            if (users.some(u => u.email === email)) {
+                showMessage('Este email ya está registrado', 'error', 'register');
+                return;
+            }
+
+            const newUser = {
+                id: users.length + 1,
+                name: name,
+                email: email,
+                password: password
+            };
+
+            users.push(newUser);
+            localStorage.setItem('plantcare_users', JSON.stringify(users));
+
+            showMessage('¡Cuenta creada! Por favor inicia sesión', 'success', 'register');
+            setTimeout(() => toggleForms(), 1500);
+            document.getElementById('registerForm').reset();
+        }
+
+
+        function loadDashboard() {
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('dashboard-page').classList.add('active');
+            
+            
+            document.querySelector('.auth-buttons').classList.add('hidden');
+
+            const firstName = currentUser.name.split(' ')[0];
+            document.getElementById('user-name').textContent = firstName;
+            document.getElementById('user-avatar-circle').textContent = firstName.charAt(0).toUpperCase();
+
+            loadCourses();
+        }
+
+        function loadCourses() {
+            const coursesHTML = courses.map(course => `
+                <div class="course-card">
+                    <div class="course-image" style="background-image: url('${course.image}'); background-size: cover; background-position: center;"></div>
+                    <div class="course-info">
+                        <h3>${course.title}</h3>
+                        <p>${course.description}</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${course.progress}%"></div>
+                        </div>
+                        <p style="color: #999; font-size: 0.85em; text-align: right;">${course.progress}% completado</p>
+                        <button class="submit-btn" style="width: 100%; margin-top: 10px;" onclick="openModule(${course.id})">Continuar</button>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('courses-container').innerHTML = coursesHTML;
+        }
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(`${tabName}-tab`).style.display = 'block';
+            event.target.classList.add('active');
+
+            // Cargar contenido específico según la pestaña
+            if (tabName === 'progreso') {
+                loadProgress();
+            } else if (tabName === 'certificados') {
+                loadCertificates();
+            }
+        }
+
+        function loadProgress() {
+            const progressHTML = courses.map(course => `
+                <div class="course-card" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="course-image" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; flex-direction: column; justify-content: center;">
+                        <i class="fas fa-chart-line" style="font-size: 2.5em; margin-bottom: 10px;"></i>
+                        <span style="font-size: 1.2em; font-weight: 700;">${course.progress}%</span>
+                    </div>
+                    <div class="course-info" style="flex: 1;">
+                        <h3>${course.title}</h3>
+                        <div class="progress-bar" style="margin: 20px 0;">
+                            <div class="progress-fill" style="width: ${course.progress}%"></div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                            <div style="text-align: center; padding: 10px; background: #f5f8f3; border-radius: 8px;">
+                                <div style="font-size: 0.8em; color: #999;">Tiempo</div>
+                                <div style="font-weight: 700; color: var(--primary);">${6 + Math.floor(Math.random() * 10)}h</div>
+                            </div>
+                            <div style="text-align: center; padding: 10px; background: #f5f8f3; border-radius: 8px;">
+                                <div style="font-size: 0.8em; color: #999;">Sesiones</div>
+                                <div style="font-weight: 700; color: var(--primary);">${3 + Math.floor(Math.random() * 8)}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('progress-container').innerHTML = progressHTML;
+        }
+
+        function loadCertificates() {
+            const today = new Date();
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = today.toLocaleDateString('es-ES', dateOptions);
+            
+            const certificateHTML = `
+                <div style="grid-column: 1 / -1;">
+                    <div class="course-card" style="background: linear-gradient(135deg, #fff9e6 0%, #fffaed 100%); border: 2px solid #ffc107;">
+                        <div style="padding: 40px; text-align: center;">
+                            <i class="fas fa-medal" style="font-size: 3em; color: #ffc107; margin-bottom: 20px;"></i>
+                            <h3 style="margin-bottom: 10px;">Certificado Completado</h3>
+                            <p style="color: #666; margin-bottom: 20px;">Introducción a las Plantas</p>
+                            <p style="font-size: 0.9em; color: #999; margin-bottom: 15px;">Emitido el ${formattedDate}</p>
+                            <button class="submit-btn" style="margin: 0 auto; background: #ffc107; color: #333; font-weight: 700;">
+                                <i class="fas fa-download"></i> Descargar Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card" style="background: linear-gradient(135deg, #f0f0f0 0%, #f8f8f8 100%); border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-lock" style="font-size: 2.5em; color: #999; margin-bottom: 15px;"></i>
+                        <p style="color: #999; font-size: 0.95em;">Completa más módulos para obtener nuevos certificados</p>
+                    </div>
+                </div>
+                <div class="course-card" style="background: linear-gradient(135deg, #f0f0f0 0%, #f8f8f8 100%); border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-lock" style="font-size: 2.5em; color: #999; margin-bottom: 15px;"></i>
+                        <p style="color: #999; font-size: 0.95em;">Completa más módulos para obtener nuevos certificados</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('certificates-container').innerHTML = certificateHTML;
+        }
+
+
+        function openModule(courseId) {
+            // Mapeo de cursos a módulos
+            let moduleId = 1;
+            if (courseId === 2) moduleId = 2;
+            if (courseId === 3) moduleId = 3;
+            if (courseId === 4) moduleId = 4;
+            if (courseId === 5) moduleId = 5;
+            if (courseId === 6) moduleId = 6;
+            
+            const module = modules[moduleId];
+            if (!module) {
+                alert('Módulo no disponible');
+                return;
+            }
+            
+            // Ocultar dashboard y mostrar módulos
+            const dashboardPage = document.getElementById('dashboard-page');
+            const modulesView = document.getElementById('modules-view');
+            
+            dashboardPage.classList.remove('active');
+            modulesView.classList.add('active');
+            
+            // Ocultar la navbar principal
+            document.body.classList.add('modules-active');
+            
+            displayModuleContent(module);
+            window.scrollTo(0, 0);
+        }
+
+        function displayModuleContent(module) {
+            document.getElementById('module-title').textContent = module.moduleName;
+            
+            let contentHTML = '';
+            
+            // Agregar secciones del módulo
+            module.sections.forEach((section, index) => {
+                contentHTML += `
+                    <div class="module-section">
+                        <h3>${section.title}</h3>
+                        ${section.content}
+                    </div>
+                `;
+            });
+            
+            // Agregar quiz
+            contentHTML += `
+                <div class="module-section">
+                    <div class="quiz-section">
+                        <h3><i class="fas fa-clipboard-check"></i> Evaluación de Conocimientos</h3>
+                        <form id="quiz-form" onsubmit="submitQuiz(event)">
+            `;
+            
+            module.quiz.questions.forEach((question, index) => {
+                contentHTML += `
+                    <div class="quiz-question">
+                        <h4><i class="fas fa-circle" style="color: var(--primary); font-size: 0.6em; margin-right: 8px;"></i>Pregunta ${index + 1}: ${question.question}</h4>
+                `;
+                
+                question.options.forEach((option, optionIndex) => {
+                    const optionId = `q${index}_o${optionIndex}`;
+                    contentHTML += `
+                        <div class="quiz-option">
+                            <input type="radio" id="${optionId}" name="question_${index}" value="${optionIndex}" data-correct="${option.correct}" required>
+                            <label for="${optionId}">${option.text}</label>
+                        </div>
+                    `;
+                });
+                
+                contentHTML += `</div>`;
+            });
+            
+            contentHTML += `
+                        </form>
+                        <div id="quiz-result" class="quiz-result"></div>
+                        <div class="navigation-buttons">
+                            <button type="button" onclick="backToDashboard()" class="submit-btn" style="background: #888; flex: 1;"><i class="fas fa-times"></i> Cancelar</button>
+                            <button type="button" onclick="submitQuiz()" class="submit-btn" style="flex: 1;"><i class="fas fa-check"></i> Enviar Evaluación</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modules-content').innerHTML = contentHTML;
+        }
+
+        function submitQuiz() {
+            const form = document.getElementById('quiz-form');
+            const quizResult = document.getElementById('quiz-result');
+            
+            let correctAnswers = 0;
+            let totalQuestions = 0;
+            let answered = 0;
+            
+            // Contar preguntas respondidas y correctas
+            const radios = form.querySelectorAll('input[type="radio"]');
+            const module = modules[1];
+            
+            module.quiz.questions.forEach((question, index) => {
+                totalQuestions++;
+                const selectedRadio = form.querySelector(`input[name="question_${index}"]:checked`);
+                
+                if (selectedRadio) {
+                    answered++;
+                    if (selectedRadio.dataset.correct === 'true') {
+                        correctAnswers++;
+                    }
+                }
+            });
+            
+            if (answered < totalQuestions) {
+                quizResult.innerHTML = '<i class="fas fa-exclamation-circle"></i> Por favor responde todas las preguntas antes de enviar';
+                quizResult.className = 'quiz-result error show';
+                return;
+            }
+            
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            const passing = percentage >= 70;
+            
+            let resultMessage = '';
+            
+            if (passing) {
+                resultMessage = `
+                    <h4><i class="fas fa-star" style="color: #ffc107; margin-right: 8px;"></i>¡Excelente Desempeño!</h4>
+                    <p>Has acertado <strong>${correctAnswers} de ${totalQuestions}</strong> preguntas</p>
+                    <p style="font-size: 1.5em; font-weight: 700; color: var(--primary); margin-top: 10px;">${Math.round(percentage)}%</p>
+                    <p style="margin-top: 15px;"><i class="fas fa-check-circle"></i> Módulo completado satisfactoriamente</p>
+                `;
+                quizResult.className = 'quiz-result success show';
+            } else {
+                resultMessage = `
+                    <h4><i class="fas fa-info-circle" style="margin-right: 8px;"></i>Resultado del Intento</h4>
+                    <p>Has acertado <strong>${correctAnswers} de ${totalQuestions}</strong> preguntas</p>
+                    <p style="font-size: 1.5em; font-weight: 700; color: #d97654; margin-top: 10px;">${Math.round(percentage)}%</p>
+                    <p style="margin-top: 15px;">Necesitas al menos 70% para pasar. Repasa el contenido e intenta nuevamente.</p>
+                `;
+                quizResult.className = 'quiz-result error show';
+            }
+            
+            quizResult.innerHTML = resultMessage;
+        }
+
+        function backToDashboard() {
+            document.getElementById('modules-view').classList.remove('active');
+            document.getElementById('dashboard-page').classList.add('active');
+            document.body.classList.remove('modules-active');
+            window.scrollTo(0, 0);
+        }
+
+        function logout() {
+            if (confirm('¿Estás seguro de cerrar sesión?')) {
+                currentUser = null;
+                document.getElementById('main-page').style.display = 'block';
+                document.getElementById('dashboard-page').classList.remove('active');
+                document.querySelector('.auth-buttons').classList.remove('hidden');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function handleContactForm(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto pronto.');
+            e.target.reset();
+        }
+
+        // Cerrar modal al hacer click fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('auth-modal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
