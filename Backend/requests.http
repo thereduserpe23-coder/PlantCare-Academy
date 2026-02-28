@@ -1,0 +1,114 @@
+### Variables de entorno
+@baseUrl = https://localhost:7000/api
+@token = 
+
+### ============================================
+### 👤 AUTENTICACIÓN
+### ============================================
+
+### Registrar nuevo usuario
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Juan Pérez",
+  "email": "juan@plantcare.com",
+  "password": "SecurePass123!"
+}
+
+### Guardar el token de respuesta en @token
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "juan@plantcare.com",
+  "password": "SecurePass123!"
+}
+
+### ============================================
+### 👥 USUARIOS
+### ============================================
+
+### Obtener perfil de usuario
+GET {{baseUrl}}/users/profile/1
+Authorization: Bearer {{token}}
+
+### ============================================
+### 📚 CURSOS
+### ============================================
+
+### Obtener todos los cursos
+GET {{baseUrl}}/courses
+Authorization: Bearer {{token}}
+
+### Obtener curso específico
+GET {{baseUrl}}/courses/1
+Authorization: Bearer {{token}}
+
+### Obtener módulos de un curso
+GET {{baseUrl}}/courses/1/modules
+Authorization: Bearer {{token}}
+
+### ============================================
+### 📋 INSCRIPCIONES
+### ============================================
+
+### Inscribir usuario a curso
+POST {{baseUrl}}/enrollments/enroll?userId=1&courseId=1
+Authorization: Bearer {{token}}
+
+### Obtener inscripciones del usuario
+GET {{baseUrl}}/enrollments/user/1
+Authorization: Bearer {{token}}
+
+### Actualizar progreso de inscripción
+PUT {{baseUrl}}/enrollments/1/progress?progress=50
+Authorization: Bearer {{token}}
+
+### ============================================
+### ❓ QUIZZES
+### ============================================
+
+### Obtener quiz
+GET {{baseUrl}}/quizzes/1
+Authorization: Bearer {{token}}
+
+### Enviar respuestas de quiz
+POST {{baseUrl}}/quizzes/1/submit?userId=1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "answers": {
+    "1": 1,
+    "2": 4,
+    "3": 2,
+    "4": 3,
+    "5": 1
+  }
+}
+
+### Obtener resultados de quizzes del usuario
+GET {{baseUrl}}/quizzes/user/1/results
+Authorization: Bearer {{token}}
+
+### ============================================
+### 🏆 CERTIFICADOS
+### ============================================
+
+### Obtener certificados del usuario
+GET {{baseUrl}}/certificates/user/1
+Authorization: Bearer {{token}}
+
+### Verificar certificado
+GET {{baseUrl}}/certificates/verify/CERT-20260228-ABC123XY
+Authorization: Bearer {{token}}
+
+### ============================================
+### 💚 HEALTH CHECK
+### ============================================
+
+### Estado de la API
+GET {{baseUrl}}/health
